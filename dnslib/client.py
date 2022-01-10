@@ -82,6 +82,7 @@ if __name__ == '__main__':
             raise DNSError('Response transaction id does not match query transaction id')
             
         if source_port(q) != source_port(a):
+            # RFC1035 - source port should be the same for query-response
             raise DNSError('Response transaction id does not match query transaction id')
             
         if a.header.tc and args.noretry == False:
